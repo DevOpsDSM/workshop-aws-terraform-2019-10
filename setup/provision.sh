@@ -11,3 +11,6 @@ sudo mv -f terraform /usr/local/bin/
 
 aws --version
 terraform --version
+
+
+aws s3api list-buckets

@@ -57,6 +57,53 @@ module "security_group" {
 resource "aws_kms_key" "this" {
 }
 
+resource "aws_iam_instance_profile" "profile" {
+  name = "workshop-profile"
+  role = aws_iam_role.role.name
+}
+
+resource "aws_iam_role" "role" {
+  name = "workshop-role"
+  path = "/"
+
+  assume_role_policy = <<EOF
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": "sts:AssumeRole",
+            "Principal": {
+               "Service": "ec2.amazonaws.com"
+            },
+            "Effect": "Allow",
+            "Sid": ""
+        }
+    ]
+}
+EOF
+}
+
+resource "aws_iam_role_policy" "policy" {
+  name = "workshop-policy"
+  role = aws_iam_role.role.id
+
+  policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": [
+        "s3:*"
+      ],
+      "Effect": "Allow",
+      "Resource": "*"
+    }
+  ]
+}
+EOF
+}
+
+
 module "ec2" {
   source                 = "../../terraform-aws-ec2-instance/"
 
@@ -71,7 +118,7 @@ module "ec2" {
   associate_public_ip_address = true
   key_name      = aws_key_pair.deployer.key_name
 
-  // iam_instance_profile = ""
+  iam_instance_profile = aws_iam_instance_profile.profile.name
 
   root_block_device = [
     {
