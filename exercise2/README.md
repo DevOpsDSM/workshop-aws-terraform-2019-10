@@ -2,6 +2,9 @@
 
 In this exercise, we will use `exercise1` resources to do some inspection and see how IAM works.
 
+We will also see how you can separate terraform resources by using data sources.
+
+
 _NOTE_: everything in this exercise should be run from the ec2 host provided to you.
 
 ## Steps
