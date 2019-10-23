@@ -22,7 +22,7 @@ AWS_PROFILE=profilename terraform plan
 AWS_PROFILE=profilename terraform apply
 AWS_PROFILE=profilename terraform destroy
 ```
-To create more instances, use the instance_count variable on the command line.  Replase X with the number of instances you wabt to build.
+To create more instances, use the instance_count variable on the command line.  Replace X with the number of instances you want to build.
 ```
 terraform plan --var 'instance_count=X'
 terraform apply --var 'instance_count=X'
