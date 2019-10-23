@@ -110,7 +110,8 @@ EOF
 
 
 module "ec2" {
-  source = "../../terraform-aws-ec2-instance/"
+  source  = "terraform-aws-modules/ec2-instance/aws"
+  version = "~> 2.0"
 
   instance_count = var.instance_count
 
