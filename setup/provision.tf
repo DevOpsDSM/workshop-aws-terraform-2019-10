@@ -9,8 +9,9 @@ resource "null_resource" "provision" {
   }
 
   triggers = {
-    INSTANCES     = "${join(",", module.ec2.public_dns)}"
-    SCRIPT_DEPLOY = "${md5(file("provision.sh"))}"
+    INSTANCES     = join(",", module.ec2.public_dns)
+    SCRIPT_DEPLOY = md5(file("provision.sh"))
+    PASSWORD      = var.password
   }
 
   provisioner "local-exec" {
@@ -36,7 +37,7 @@ resource "null_resource" "provision" {
   provisioner "remote-exec" {
     inline = [
       "chmod +x /tmp/provision.sh",
-      "/tmp/provision.sh",
+      "/tmp/provision.sh ${var.password}",
     ]
   }
 }

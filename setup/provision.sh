@@ -1,7 +1,15 @@
 #!/bin/bash
 set -e
 
+PASSWORD=$1
 sudo yum update -y
+
+set +e
+echo "${PASSWORD}" | sudo passwd ec2-user --stdin
+set -e
+
+sudo sed -i 's/^PasswordAuthentication .*/PasswordAuthentication yes/g' /etc/ssh/sshd_config
+sudo service sshd restart
 
 wget https://releases.hashicorp.com/terraform/0.12.12/terraform_0.12.12_linux_amd64.zip
 unzip -o terraform_0.12.12_linux_amd64.zip

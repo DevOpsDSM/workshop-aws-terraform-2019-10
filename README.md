@@ -6,6 +6,8 @@ The code here was used for a workshop at DevopsDSM to introduce participants to 
 
 This folder was used by instructors to setup cloud VMs for participants to use during the workshop.
 
+_NOTE_: because this is a short workshop, there were some corners cut around instance ssh access. Forgive and forget. Also don't do this...
+
 As an instructor, you can run this:
 
 ```
@@ -26,7 +28,7 @@ All a participant needs is an SSH client (during this workshop, chromebooks were
 Get a public dns name and a password from your instructor, then:
 
 ```
-ssh ec2-user@some-public-aws.com
+ssh workshop@some-public-aws.com
 ```
 
 Onced ssh, you have a few tools available:
