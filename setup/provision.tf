@@ -13,11 +13,21 @@ resource "null_resource" "provision" {
     SCRIPT_DEPLOY      = "${md5(file("provision.sh"))}"
   }
 
+  provisioner "local-exec" {
+    command = "(cd ..;tar -cf - exercise*) > homedir.tar"
+  }
+
+  provisioner "file" {
+    source      = "homedir.tar"
+    destination = "/tmp/homeir.tar"
+  }
+
   provisioner "remote-exec" {
     inline = [
       "echo connected",
     ]
   }
+
   provisioner "file" {
     source      = "provision.sh"
     destination = "/tmp/provision.sh"

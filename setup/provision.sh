@@ -9,8 +9,9 @@ rm terraform_0.12.12_linux_amd64.zip
 chmod +x terraform
 sudo mv -f terraform /usr/local/bin/
 
+(cd /home/ec2-user; tar -xvf /tmp/homeir.tar)
+
 aws --version
 terraform --version
-
 
 aws s3api list-buckets

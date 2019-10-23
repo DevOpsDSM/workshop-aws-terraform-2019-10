@@ -1,6 +1,9 @@
-variable "instance_count" {}
+variable "instance_count" { default = "1" }
+
+variable "aws_region" { default = "us-east-1" }
 
 provider "aws" {
+  region = var.aws_region
 }
 
 ##################################################################
@@ -112,7 +115,7 @@ module "ec2" {
   name          = "workshop-normal"
   use_num_suffix = true
   ami           = data.aws_ami.amazon_linux.id
-  instance_type = "t2.medium"
+  instance_type = "t2.nano"
   subnet_id     = tolist(data.aws_subnet_ids.all.ids)[0]
   vpc_security_group_ids      = [module.security_group.this_security_group_id]
   associate_public_ip_address = true

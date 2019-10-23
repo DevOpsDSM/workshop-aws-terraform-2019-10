@@ -2,3 +2,5 @@ id_rsa*
 
 terraform.tfstate*
 .terraform/
+homedir.tar
+
