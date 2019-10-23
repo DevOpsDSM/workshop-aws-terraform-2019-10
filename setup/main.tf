@@ -63,7 +63,7 @@ resource "aws_kms_key" "this" {
 }
 
 resource "aws_iam_instance_profile" "profile" {
-  name = "workshop-profile"
+  name = "workshop-profile2"
   role = aws_iam_role.role.name
 }
 
@@ -107,7 +107,6 @@ resource "aws_iam_role_policy" "policy" {
 }
 EOF
 }
-
 
 module "ec2" {
   source  = "terraform-aws-modules/ec2-instance/aws"
