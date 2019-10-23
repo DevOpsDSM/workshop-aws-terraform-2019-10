@@ -28,7 +28,7 @@ All a participant needs is an SSH client (during this workshop, chromebooks were
 Get a public dns name and a password from your instructor, then:
 
 ```
-ssh workshop@some-public-aws.com
+ssh ec2-user@some-public-aws.com
 ```
 
 Onced ssh, you have a few tools available:

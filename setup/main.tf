@@ -114,7 +114,7 @@ module "ec2" {
 
   instance_count = var.instance_count
 
-  name           = "workshop-normal"
+  name           = "workshop-instance"
   use_num_suffix = true
   ami            = data.aws_ami.amazon_linux.id
   instance_type  = "t2.nano"
