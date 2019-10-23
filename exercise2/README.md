@@ -53,3 +53,15 @@ terraform apply
 This will prompt you a bucket name. Grab one of the names from the `list-buckets` command earlier (not yours!).
 
 Terraform will now grab the index file from their bucket and show you their content!
+
+
+
+Just for fun, try a destroy in this exercise2 folder.
+
+```
+terraform destroy
+```
+
+This will prompt you a bucket name. Grab one of the names from the `list-buckets` command earlier (not yours!).
+
+What happened, and why?
