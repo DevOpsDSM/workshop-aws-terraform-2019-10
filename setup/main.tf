@@ -63,7 +63,7 @@ resource "aws_kms_key" "this" {
 }
 
 resource "aws_iam_instance_profile" "profile" {
-  name = "workshop-profile2"
+  name = "workshop-profile"
   role = aws_iam_role.role.name
 }
 
