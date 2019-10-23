@@ -16,8 +16,12 @@ unzip -o terraform_0.12.12_linux_amd64.zip
 rm terraform_0.12.12_linux_amd64.zip
 chmod +x terraform
 sudo mv -f terraform /usr/local/bin/
+mkdir ~/bin
+ln -s /usr/local/bin/terraform  ~/bin/tf
 
 (cd /home/ec2-user; tar -xvf /tmp/homeir.tar)
+
+curl http://169.254.169.254/latest/meta-data/hostname > /tmp/hostname
 
 aws --version
 terraform --version
