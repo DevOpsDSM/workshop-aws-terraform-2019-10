@@ -45,7 +45,7 @@ resource "aws_key_pair" "deployer" {
 }
 
 module "security_group" {
-  source = "terraform-aws-modules/security-group/aws"
+  source  = "terraform-aws-modules/security-group/aws"
   version = "~> 3.0"
 
   name        = "workshop"
@@ -108,18 +108,19 @@ EOF
 
 
 module "ec2" {
-  source                 = "../../terraform-aws-ec2-instance/"
+  source = "../../terraform-aws-ec2-instance/"
 
   instance_count = var.instance_count
 
-  name          = "workshop-normal"
-  use_num_suffix = true
-  ami           = data.aws_ami.amazon_linux.id
-  instance_type = "t2.nano"
-  subnet_id     = tolist(data.aws_subnet_ids.all.ids)[0]
+  name                        = "workshop-normal"
+  use_num_suffix              = true
+  ami                         = data.aws_ami.amazon_linux.id
+  instance_type               = "t2.nano"
+  subnet_id                   = tolist(data.aws_subnet_ids.all.ids)[0]
+
   vpc_security_group_ids      = [module.security_group.this_security_group_id]
   associate_public_ip_address = true
-  key_name      = aws_key_pair.deployer.key_name
+  key_name                    = aws_key_pair.deployer.key_name
 
   iam_instance_profile = aws_iam_instance_profile.profile.name
 

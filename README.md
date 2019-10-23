@@ -34,6 +34,12 @@ Onced ssh, you have a few tools available:
 - awscli
 - terraform
 
-### Workshop steps
+## Workshop Exercises
 
-TBD
+### Exercise 1
+
+[click](exercise1/README.md)
+
+### Exercise 2
+
+[click](exercise2/README.md)
