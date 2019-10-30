@@ -20,7 +20,7 @@ resource "null_resource" "provision" {
 
   provisioner "file" {
     source      = "homedir.tar"
-    destination = "/tmp/homeir.tar"
+    destination = "/tmp/homedir.tar"
   }
 
   provisioner "remote-exec" {
