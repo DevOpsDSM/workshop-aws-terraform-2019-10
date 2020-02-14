@@ -1,8 +1,17 @@
 variable "instance_count" { default = "1" }
 
-variable "aws_region" { default = "us-east-1" }
+variable "aws_region" { default = "us-east-2" }
 
 variable "password" {}
+
+terraform {
+  required_version = ">= 0.12.20"
+  required_providers {
+    aws  = ">= 2.49.0"
+    null = ">= 2.1.2"
+  }
+}
+
 
 provider "aws" {
   region = var.aws_region

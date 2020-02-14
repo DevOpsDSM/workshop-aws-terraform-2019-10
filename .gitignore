@@ -4,3 +4,5 @@ terraform.tfstate*
 .terraform/
 homedir.tar
 
+terraform
+*zip

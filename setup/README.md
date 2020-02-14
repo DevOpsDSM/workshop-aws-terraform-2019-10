@@ -10,6 +10,15 @@ export TF_VAR_password=`pwgen --no-capitalize 8 -1`
 If you want 1 instance for testing use the basic terraform workflow.
 
 ```
+wget https://releases.hashicorp.com/terraform/0.12.20/terraform_0.12.20_linux_amd64.zip
+unzip terraform_0.12.20_linux_amd64.zip
+export PATH=.:$PATH
+terraform version
+```
+
+Ensure you are running 0.12+
+
+```
 terraform init
 terraform plan
 terraform apply
